@@ -59,4 +59,4 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-to toggle light, dark and high contrast modes, use `context.themeCubit.toggleTheme();` to cycle through or `context.themeCubit. setThemeMode(AppThemeMode mode);` to set directly
+To toggle light, dark and high contrast modes from anywhere in the app, use `context.themeCubit.toggleTheme();` to cycle through or `context.themeCubit. setThemeMode(AppThemeMode mode);` to set directly
