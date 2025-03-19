@@ -1,39 +1,58 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Design System Sample
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A sample plugin to manage theming between multiple apps
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Example App
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Within this repository, you will find a sample app that uses this plugin. It displays chips, text and buttons. The chips and text are styled via the widgets that are exported. 
 
-## Features
+The Buttons are styled via the theme directly. This allows theming to be applied directly to flutter widgets as an alternate to maintaining UI widgets in the plugin. Both can work.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+I will say that the chips are not styled to my satisfaction but I wanted to submit this ASAP.
 
-## Getting started
+## Thought process
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+The biggest decision I made was whether to use the darkTheme, lightTheme parameters to the flutter app or use a custom solution to manage the state of the theme. Since there isn't a parameter for highContrastTheme, I decided to use my own state manager and supply the currently selected theme state to the default theme: parameter. This allows for an unlimited amount of themes and relies less on the flutter framework and I think would avoid breaking changes.
+
+I did use a lot of code gen for this project and I'll say the results aren't perfect but I am happy with the progress. I feel like the Text and Chip widgets are a bit verbose and could possibly be trimmed down. 
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use this package, you should be able to add the repo to your flutter project by adding this as a dependency in your pubspec.yaml
 
-```dart
-const like = 'sample';
+Note: notice the discrepency between the package name and the repository name below
+
+```yaml
+sample_design_system:
+    git:
+      url: https://github.com/peterIrving/design_system_sample.git
+      ref: main
 ```
 
-## Additional information
+To use, wrap your app in the `ThemeCubitProvider` and then wrap the MaterialApp with the `ThemeConsumer`. Supply the themeState.themeData to the apps theme and you are good to go
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+
+```dart
+void main() {
+  runApp(ThemeCubitProvider(child: const MyApp()));
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ThemeConsumer(
+      builder:
+          (context, themeState) => MaterialApp(
+            title: 'Flutter Demo',
+            theme: themeState.themeData,
+
+            home: Home(),
+          ),
+    );
+  }
+}
+```
+
+To toggle light, dark and high contrast modes from anywhere in the app, use `context.themeCubit.toggleTheme();` to cycle through or `context.themeCubit. setThemeMode(AppThemeMode mode);` to set directly
