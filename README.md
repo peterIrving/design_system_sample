@@ -25,15 +25,36 @@ start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+To use this package, you should be able to add the repo to your flutter project by adding this as a dependency in your pubspec.yaml
+
+sample_design_system:
+    git:
+      url: https://github.com/peterIrving/design_system_sample.git
+      ref: main
+
+
+To use 
+
 
 ```dart
-const like = 'sample';
-```
+void main() {
+  runApp(ThemeCubitProvider(child: const MyApp()));
+}
 
-## Additional information
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+  @override
+  Widget build(BuildContext context) {
+    return ThemeConsumer(
+      builder:
+          (context, themeState) => MaterialApp(
+            title: 'Flutter Demo',
+            theme: themeState.themeData,
+
+            home: Home(),
+          ),
+    );
+  }
+}
