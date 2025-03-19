@@ -55,8 +55,7 @@ class ThemeConsumer extends StatelessWidget {
   )
   builder;
 
-  const ThemeConsumer({Key? key, required this.builder})
-    : super(key: key);
+  const ThemeConsumer({super.key, required this.builder});
 
   @override
   Widget build(BuildContext context) {
@@ -72,10 +71,10 @@ class ThemeCubitProvider extends StatelessWidget {
   final ThemeCubit? cubit;
 
   const ThemeCubitProvider({
-    Key? key,
+    super.key,
     required this.child,
     this.cubit,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

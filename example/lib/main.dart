@@ -519,7 +519,9 @@ Widget _buildSectionTitle(String title) {
         padding: const EdgeInsets.all(AppSpacing.sm),
         decoration: BoxDecoration(
           color:
-              Theme.of(context).colorScheme.surfaceVariant,
+              Theme.of(
+                context,
+              ).colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(
             AppSpacing.sm,
           ),

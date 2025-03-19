@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sample_design_system/src/more_theme.dart';
+import 'package:sample_design_system/src/app_typography.dart';
 
 /// Defines the available text variants for [FreeportText]
 enum TextVariant {
@@ -49,7 +49,7 @@ class FreeportText extends StatelessWidget {
   /// Creates a [FreeportText] widget
   const FreeportText(
     this.text, {
-    Key? key,
+    super.key,
     this.variant = TextVariant.body,
     this.color,
     this.bold = false,
@@ -57,7 +57,7 @@ class FreeportText extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.overflow,
-  }) : super(key: key);
+  });
 
   /// Headline variant constructor
   factory FreeportText.headline(
@@ -186,7 +186,7 @@ class FreeportText extends StatelessWidget {
 
     // Create the base text style using AppTypography
     TextStyle style = _createBaseStyle(
-      theme.colorScheme.onBackground,
+      theme.colorScheme.onSurface,
     );
 
     // Apply modifiers (bold, italic, color)
