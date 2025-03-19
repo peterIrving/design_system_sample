@@ -27,11 +27,12 @@ start using the package.
 
 To use this package, you should be able to add the repo to your flutter project by adding this as a dependency in your pubspec.yaml
 
+```yaml
 sample_design_system:
     git:
       url: https://github.com/peterIrving/design_system_sample.git
       ref: main
-
+```
 
 To use, wrap your app in the `ThemeCubitProvider` and then wrap the MaterialApp with the `ThemeConsumer`. Supply the themeState.themeData to the apps theme and you are good to go
 
