@@ -1,3 +1,7 @@
+# Design System Sample
+
+A sample plugin to manage theming between multiple apps
+
 ## Example App
 
 Within this repository, you will find a sample app that uses this plugin. It displays chips, text and buttons. The chips and text are styled via the widgets that are exported. 
@@ -10,11 +14,13 @@ I will say that the chips are not styled to my satisfaction but I wanted to subm
 
 The biggest decision I made was whether to use the darkTheme, lightTheme parameters to the flutter app or use a custom solution to manage the state of the theme. Since there isn't a parameter for highContrastTheme, I decided to use my own state manager and supply the currently selected theme state to the default theme: parameter. This allows for an unlimited amount of themes and relies less on the flutter framework and I think would avoid breaking changes.
 
-I did use a lot of code gen for this project and Ill say the results arent perfect but I am happy with the progress. I feel like the Text and Chip widgets are a bit verbose and could possibly be trimmed down. 
+I did use a lot of code gen for this project and I'll say the results aren't perfect but I am happy with the progress. I feel like the Text and Chip widgets are a bit verbose and could possibly be trimmed down. 
 
 ## Usage
 
 To use this package, you should be able to add the repo to your flutter project by adding this as a dependency in your pubspec.yaml
+
+Note: notice the discrepency between the package name and the repository name below
 
 ```yaml
 sample_design_system:
