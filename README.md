@@ -1,27 +1,16 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## Example App
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+Within this repository, you will find a sample app that uses this plugin. It displays chips, text and buttons. The chips and text are styled via the widgets that are exported. 
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+The Buttons are styled via the theme directly. This allows theming to be applied directly to flutter widgets as an alternate to maintaining UI widgets in the plugin. Both can work.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+I will say that the chips are not styled to my satisfaction but I wanted to submit this ASAP.
 
-## Features
+## Thought process
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+The biggest decision I made was whether to use the darkTheme, lightTheme parameters to the flutter app or use a custom solution to manage the state of the theme. Since there isn't a parameter for highContrastTheme, I decided to use my own state manager and supply the currently selected theme state to the default theme: parameter. This allows for an unlimited amount of themes and relies less on the flutter framework and I think would avoid breaking changes.
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+I did use a lot of code gen for this project and Ill say the results arent perfect but I am happy with the progress. I feel like the Text and Chip widgets are a bit verbose and could possibly be trimmed down. 
 
 ## Usage
 
