@@ -33,7 +33,7 @@ sample_design_system:
       ref: main
 
 
-To use 
+To use, wrap your app in the `ThemeCubitProvider` and then wrap the MaterialApp with the `ThemeConsumer`. Supply the themeState.themeData to the apps theme and you are good to go
 
 
 ```dart
@@ -58,3 +58,5 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+
+to toggle light, dark and high contrast modes, use `context.themeCubit.toggleTheme();` to cycle through or `context.themeCubit. setThemeMode(AppThemeMode mode);` to set directly
