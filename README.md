@@ -41,7 +41,6 @@ void main() {
   runApp(ThemeCubitProvider(child: const MyApp()));
 }
 
-```dart
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -58,3 +57,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+```
